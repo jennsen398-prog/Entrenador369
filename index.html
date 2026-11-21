@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gimnasio Urbano El Cuaima | Sistema 369 Fitness</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Entrenador 369 | Sistema 369 - Calistenia &amp; Fuerza Real</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Fitness Icons -->
+    <!-- Google Fonts: Oswald (Titulares Urbanos/Deportivos) e Inter (Lectura clara) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Oswald:wght@500;700&amp;display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
                     },
                     colors: {
-                        cuaima: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7', // Principal light/electric blue
-                            700: '#0369a1',
-                            900: '#0c4a6e',
+                        brand: {
+                            gold: '#F59E0B',
+                            dark: '#09090B',
+                            card: '#121215',
+                            border: '#27272A'
                         }
                     }
                 }
@@ -34,416 +33,405 @@
         }
     </script>
     <style>
-        body {
-            background-color: #ffffff;
-            color: #1e293b;
+        /* Efecto de brillo sutil y scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .blue-gradient-text {
-            background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        ::-webkit-scrollbar-track {
+            background: #09090B;
         }
-        .blue-glow {
-            box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.25);
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
         }
-        .gym-grid-bg {
-            background-image: radial-gradient(#e0f2fe 1px, transparent 1px);
-            background-size: 24px 24px;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F59E0B;
         }
-        .img-overlay {
-            background: linear-gradient(180deg, rgba(2, 132, 199, 0.05) 0%, rgba(15, 23, 42, 0.75) 100%);
+        .text-glow {
+            text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
         }
     </style>
 </head>
-<body class="font-sans antialiased bg-white text-slate-800 min-h-screen flex flex-col justify-between gym-grid-bg">
+<body class="bg-brand-dark text-zinc-100 font-sans antialiased selection:bg-brand-gold selection:text-black">
 
-    <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-cuaima-100 shadow-sm">
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Brand Logo -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-cuaima-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-                        <i class="fa-solid fa-dumbbell"></i>
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-brand-gold rounded-lg flex items-center justify-center text-black font-display font-bold text-xl group-hover:scale-105 transition-transform">
+                        369
                     </div>
                     <div>
-                        <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">EL CUAIMA</span>
-                        <span class="text-xs font-semibold text-cuaima-600 tracking-wider">SISTEMA 369</span>
+                        <span class="font-display font-bold text-xl tracking-wider text-white block leading-none">ENTRENADOR 369</span>
+                        <span class="text-[11px] font-semibold tracking-[0.25em] text-brand-gold uppercase">SISTEMA 369</span>
                     </div>
+                </a>
+
+                <!-- Enlaces Desktop -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-300">
+                    <a href="#instalaciones" class="hover:text-brand-gold transition-colors">Instalaciones</a>
+                    <a href="#generador" class="hover:text-brand-gold transition-colors">Generador 369</a>
+                    <a href="#resultados" class="hover:text-brand-gold transition-colors">Resultados</a>
+                    <a href="#organigrama" class="hover:text-brand-gold transition-colors">Organigrama</a>
+                    <a href="#entrenador" class="hover:text-brand-gold transition-colors">Entrenador</a>
                 </div>
 
-                <!-- Desktop Links -->
-                <div class="hidden md:flex space-x-6 font-medium text-slate-600 text-sm">
-                    <a href="#zonas" class="hover:text-cuaima-600 transition">Instalaciones</a>
-                    <a href="#rutinas" class="hover:text-cuaima-600 transition">Generador 369</a>
-                    <a href="#resultados" class="hover:text-cuaima-600 transition">Resultados</a>
-                    <a href="#organizacion" class="hover:text-cuaima-600 transition">Organigrama</a>
-                    <a href="#entrenador" class="hover:text-cuaima-600 transition">Entrenador</a>
-                </div>
-
-                <!-- CTA Button Header -->
-                <div>
-                    <button onclick="openModal('Asesoría General')" class="bg-cuaima-600 hover:bg-cuaima-700 text-white font-semibold text-sm px-4 py-2 rounded-xl transition shadow-md hover:shadow-lg flex items-center space-x-2">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Pedir Asesoría</span>
+                <!-- Botón CTA -->
+                <div class="flex items-center gap-4">
+                    <button onclick="abrirModal()" class="bg-brand-gold hover:bg-amber-400 text-black font-bold py-2.5 px-5 rounded-lg text-sm transition-all transform hover:scale-105 shadow-lg shadow-amber-500/20">
+                        Pedir Asesoría
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH VISUAL BANNER -->
-    <header class="py-12 md:py-16 px-4 max-w-7xl mx-auto relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cuaima-50 border border-cuaima-200 text-cuaima-700 text-xs font-semibold mb-6">
-                    <span class="w-2 h-2 rounded-full bg-cuaima-500 animate-pulse"></span>
-                    <span>Entrenamiento Urbano & Calistenia en Venezuela</span>
-                </div>
+    <!-- HERO SECTION -->
+    <header class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+        <!-- Imagen de fondo con overlay oscuro -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&amp;fit=crop&amp;w=1920&amp;q=80" alt="Entrenamiento Urbano" class="w-full h-full object-cover opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
+        </div>
 
-                <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
-                    Construye la Fuerza Real con el <br>
-                    <span class="blue-gradient-text">Gimnasio Urbano El Cuaima</span>
-                </h1>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-wider mb-6">
+                <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                Entrenamiento Urbano &amp; Calistenia en Venezuela
+            </div>
+            
+            <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-white mb-6 leading-[1.05]">
+                Construye la Fuerza Real con <br>
+                <span class="text-brand-gold text-glow">Entrenador 369</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-zinc-400 text-lg sm:text-xl mb-10 leading-relaxed">
+                Metodología híbrida de fuerza, calistenia y acondicionamiento urbano basada en el <strong class="text-white">Sistema 369</strong>. Entrena con disciplina, sin excusas y visualiza tu transformación semana a semana.
+            </p>
 
-                <p class="text-lg text-slate-600 mb-8 font-normal leading-relaxed">
-                    Metodología híbrida de fuerza, calistenia y acondicionamiento urbano basada en el <strong>Sistema 369</strong>. Entrena con disciplina, sin excusas y visualiza tu transformación semana a semana.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center gap-4">
-                    <a href="#rutinas" class="w-full sm:w-auto bg-cuaima-600 hover:bg-cuaima-700 text-white font-bold px-7 py-3.5 rounded-xl transition blue-glow flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-bolt"></i>
-                        <span>Probar Generador 369</span>
-                    </a>
-                    <button onclick="openModal('Contacto Directo')" class="w-full sm:w-auto bg-white border-2 border-cuaima-600 text-cuaima-600 hover:bg-cuaima-50 font-bold px-7 py-3 rounded-xl transition flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-user-check"></i>
-                        <span>Solicitar Entrenador</span>
-                    </button>
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="#generador" class="w-full sm:w-auto bg-brand-gold hover:bg-amber-400 text-black font-bold py-4 px-8 rounded-xl text-base transition-all flex items-center justify-center gap-2 shadow-xl shadow-amber-500/20">
+                    <i class="fa-solid fa-bolt"></i> Probar Generador 369
+                </a>
+                <button onclick="abrirModal()" class="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-700 font-semibold py-4 px-8 rounded-xl text-base transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Solicitar Entrenador
+                </button>
             </div>
 
-            <!-- Hero Image Gallery Grid -->
-            <div class="grid grid-cols-2 gap-3 relative">
-                <div class="space-y-3">
-                    <div class="relative rounded-2xl overflow-hidden shadow-lg h-52 group">
-                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Entrenamiento de Calistenia" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 img-overlay flex items-end p-3">
-                            <span class="text-white text-xs font-bold"><i class="fa-solid fa-fire text-cuaima-400 mr-1"></i> Calistenia de Alto Nivel</span>
-                        </div>
-                    </div>
-                    <div class="relative rounded-2xl overflow-hidden shadow-lg h-36 group">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Entrenamiento con Pesas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 img-overlay flex items-end p-3">
-                            <span class="text-white text-xs font-bold"><i class="fa-solid fa-dumbbell text-cuaima-400 mr-1"></i> Trabajo de Cargas</span>
-                        </div>
+            <!-- Banner Visual Motivacional -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <div class="relative rounded-xl overflow-hidden h-40 border border-zinc-800 group">
+                    <img src="https://images.unsplash.com/photo-1598971639058-fab3c3109a00?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Entrenamiento de Calistenia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-4">
+                        <span class="font-display text-sm uppercase tracking-wider text-brand-gold font-bold">Calistenia de Alto Nivel</span>
                     </div>
                 </div>
-                <div class="space-y-3 pt-6">
-                    <div class="relative rounded-2xl overflow-hidden shadow-lg h-36 group">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="Superación Física" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 img-overlay flex items-end p-3">
-                            <span class="text-white text-xs font-bold"><i class="fa-solid fa-trophy text-cuaima-400 mr-1"></i> Disciplina 369</span>
-                        </div>
+                <div class="relative rounded-xl overflow-hidden h-40 border border-zinc-800 group">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Entrenamiento con Pesas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-4">
+                        <span class="font-display text-sm uppercase tracking-wider text-white font-bold">Trabajo de Cargas</span>
                     </div>
-                    <div class="relative rounded-2xl overflow-hidden shadow-lg h-52 group">
-                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80" alt="Entrenamiento Urbano" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 img-overlay flex items-end p-3">
-                            <span class="text-white text-xs font-bold"><i class="fa-solid fa-location-dot text-cuaima-400 mr-1"></i> Ambiente Urbano</span>
-                        </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden h-40 border border-zinc-800 group">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Superación Física" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-4">
+                        <span class="font-display text-sm uppercase tracking-wider text-brand-gold font-bold">Disciplina 369</span>
+                    </div>
+                </div>
+                <div class="relative rounded-xl overflow-hidden h-40 border border-zinc-800 group">
+                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Entrenamiento Urbano" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-4">
+                        <span class="font-display text-sm uppercase tracking-wider text-white font-bold">Ambiente Urbano</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ADSENSE / BANNER PLACEHOLDER (MONETIZATION ZONE 1) -->
-    <div class="max-w-5xl mx-auto px-4 my-4">
-        <div class="bg-slate-50 border border-dashed border-slate-300 rounded-xl p-3 text-center text-xs text-slate-400">
-            <i class="fa-solid fa-rectangle-ad mr-1"></i> Espacio Publicitario / Google AdSense
+    <!-- ESPACIO PUBLICITARIO (Preparado para Google AdSense) -->
+    <div class="max-w-5xl mx-auto px-4 py-4">
+        <div class="w-full bg-zinc-900/50 border border-dashed border-zinc-800 rounded-xl p-4 text-center">
+            <span class="text-[10px] uppercase tracking-widest text-zinc-600 block mb-1">Espacio Publicitario / Google AdSense</span>
+            <div class="h-16 flex items-center justify-center text-zinc-700 text-xs">
+                <!-- Pega aquí tu código <ins class="adsbygoogle"> cuando Google AdSense apruebe tu dominio -->
+                Banner Horizontal Adaptable (728x90 / Responsive)
+            </div>
         </div>
     </div>
 
-    <!-- GYM ZONES SECTION WITH IMAGES -->
-    <section id="zonas" class="py-12 bg-slate-50/50 border-y border-slate-100">
+    <!-- SECCIÓN INSTALACIONES Y ÁREAS -->
+    <section id="instalaciones" class="py-20 bg-brand-card border-y border-brand-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Ambiente de Entrenamiento El Cuaima</h2>
-                <p class="text-slate-600 text-sm mt-2">Instalaciones híbridas pensadas para motivarte visualmente y potenciar tus capacidades físicas</p>
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white mb-3">
+                    Ambiente de <span class="text-brand-gold">Entrenamiento 369</span>
+                </h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto">Instalaciones híbridas pensadas para motivarte visualmente y potenciar tus capacidades físicas</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Zone 1 -->
-                <div class="bg-white rounded-2xl border border-cuaima-100 shadow-sm overflow-hidden hover:border-cuaima-400 transition group">
-                    <div class="h-44 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=600&q=80" alt="Zona Calistenia" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-cuaima-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                            Dominadas y Barras
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="bg-brand-dark border border-brand-border rounded-2xl overflow-hidden hover:border-brand-gold/50 transition-all group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Zona Calistenia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-black/80 text-brand-gold text-xs font-bold px-3 py-1 rounded-md uppercase">Dominadas y Barras</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Zona Calistenia & Barras</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Parque de barras paralelas y dominadas urbanas. Perfecciona tu control corporal, dominadas con lastre y fuerza estática.
-                        </p>
+                        <h3 class="font-display text-xl font-bold uppercase text-white mb-2">Zona Calistenia &amp; Barras</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Parque de barras paralelas y dominadas urbanas. Perfecciona tu control corporal, dominadas con lastre y fuerza estática.</p>
                     </div>
                 </div>
 
-                <!-- Zone 2 -->
-                <div class="bg-white rounded-2xl border border-cuaima-100 shadow-sm overflow-hidden hover:border-cuaima-400 transition group">
-                    <div class="h-44 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=600&q=80" alt="Zona Pesas" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-cuaima-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                            Fuerza Pesada
-                        </div>
+                <!-- Tarjeta 2 -->
+                <div class="bg-brand-dark border border-brand-border rounded-2xl overflow-hidden hover:border-brand-gold/50 transition-all group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Zona Pesas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-black/80 text-brand-gold text-xs font-bold px-3 py-1 rounded-md uppercase">Fuerza Pesada</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Zona de Cargas Pesadas</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Mancuernas, pesas y resistencia externa para la hipertrofia pura y el fortalecimiento articular.
-                        </p>
+                        <h3 class="font-display text-xl font-bold uppercase text-white mb-2">Zona de Cargas Pesadas</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Mancuernas, pesas y resistencia externa para la hipertrofia pura y el fortalecimiento articular.</p>
                     </div>
                 </div>
 
-                <!-- Zone 3 -->
-                <div class="bg-white rounded-2xl border border-cuaima-100 shadow-sm overflow-hidden hover:border-cuaima-400 transition group">
-                    <div class="h-44 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=600&q=80" alt="Acondicionamiento" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute top-3 left-3 bg-cuaima-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                            Resistencia 369
-                        </div>
+                <!-- Tarjeta 3 -->
+                <div class="bg-brand-dark border border-brand-border rounded-2xl overflow-hidden hover:border-brand-gold/50 transition-all group">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Acondicionamiento" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-black/80 text-brand-gold text-xs font-bold px-3 py-1 rounded-md uppercase">Resistencia 369</span>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Acondicionamiento 369</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Rutinas dinámicas de alta intensidad orientadas a quemar grasa y aumentar la estamina funcional en poco tiempo.
-                        </p>
+                        <h3 class="font-display text-xl font-bold uppercase text-white mb-2">Acondicionamiento 369</h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed">Rutinas dinámicas de alta intensidad orientadas a quemar grasa y aumentar la estamina funcional en poco tiempo.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CRONOGRAMA DE RESULTADOS Y TIEMPOS DE CAMBIO -->
-    <section id="resultados" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="text-cuaima-600 font-extrabold text-xs uppercase tracking-widest bg-cuaima-50 px-3 py-1 rounded-full border border-cuaima-200">
-                Línea de Tiempo de Progreso
-            </span>
-            <h2 class="text-3xl font-black text-slate-900 mt-3">¿En cuánto tiempo verás resultados?</h2>
-            <p class="text-slate-600 text-sm mt-2">Con el Sistema 369 la constancia paga dividendos rápidos. Así se estructuran los cambios reales en tu cuerpo:</p>
+    <!-- LÍNEA DE TIEMPO DE RESULTADOS -->
+    <section id="resultados" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em]">Línea de Tiempo de Progreso</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white mt-2">
+                ¿En cuánto tiempo verás resultados?
+            </h2>
+            <p class="text-zinc-400 mt-3 max-w-xl mx-auto">Con el Sistema 369 la constancia paga dividendos rápidos. Así se estructuran los cambios reales en tu cuerpo:</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Etapa 1 -->
-            <div class="bg-white p-6 rounded-2xl border-2 border-cuaima-100 relative shadow-sm hover:shadow-md transition">
-                <div class="w-10 h-10 rounded-xl bg-cuaima-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <!-- Fase 1 -->
+            <div class="bg-brand-card border border-brand-border p-8 rounded-2xl relative">
+                <div class="w-12 h-12 bg-brand-gold/10 border border-brand-gold text-brand-gold font-display font-bold text-xl rounded-xl flex items-center justify-center mb-6">
                     1
                 </div>
-                <h3 class="text-lg font-extrabold text-slate-900 mb-1">Semanas 1 a 3</h3>
-                <span class="text-xs font-bold text-cuaima-600 block mb-3">Adaptación Neuromuscular</span>
-                <ul class="text-xs text-slate-600 space-y-2 mb-4">
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Incremento en fuerza de agarre y postura.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Mayor energía diaria y mejor calidad del sueño.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Reducción de la retención de líquidos inicial.</li>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-gold">Semanas 1 a 3</span>
+                <h3 class="font-display text-2xl font-bold text-white mt-1 mb-3">Adaptación Neuromuscular</h3>
+                <ul class="text-zinc-400 text-sm space-y-2.5">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Incremento en fuerza de agarre y postura.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Mayor energía diaria y mejor calidad del sueño.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Reducción de la retención de líquidos inicial.</li>
                 </ul>
-                <div class="h-32 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=500&q=80" alt="Adaptación" class="w-full h-full object-cover">
+                <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-500">
+                    <span>Adaptación</span>
+                    <span class="text-brand-gold font-semibold">Etapa Clave</span>
                 </div>
             </div>
 
-            <!-- Etapa 2 -->
-            <div class="bg-white p-6 rounded-2xl border-2 border-cuaima-400 relative shadow-md">
-                <div class="absolute top-4 right-4 bg-cuaima-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">
-                    Etapa Clave
-                </div>
-                <div class="w-10 h-10 rounded-xl bg-cuaima-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">
+            <!-- Fase 2 -->
+            <div class="bg-brand-card border-2 border-brand-gold p-8 rounded-2xl relative shadow-xl shadow-amber-500/5">
+                <div class="w-12 h-12 bg-brand-gold text-black font-display font-bold text-xl rounded-xl flex items-center justify-center mb-6">
                     2
                 </div>
-                <h3 class="text-lg font-extrabold text-slate-900 mb-1">Semanas 4 a 8</h3>
-                <span class="text-xs font-bold text-cuaima-600 block mb-3">Cambio Visión Directa</span>
-                <ul class="text-xs text-slate-600 space-y-2 mb-4">
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Definición muscular visible en brazos y abdomen.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Aumento de masa magra en pecho y espalda.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Mayor dominio de dominadas y repeticiones.</li>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-gold">Semanas 4 a 8</span>
+                <h3 class="font-display text-2xl font-bold text-white mt-1 mb-3">Cambio Visión Directa</h3>
+                <ul class="text-zinc-400 text-sm space-y-2.5">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Definición muscular visible en brazos y abdomen.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Aumento de masa magra en pecho y espalda.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Mayor dominio de dominadas y repeticiones.</li>
                 </ul>
-                <div class="h-32 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=500&q=80" alt="Definición" class="w-full h-full object-cover">
+                <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-500">
+                    <span>Definición</span>
+                    <span class="text-brand-gold font-semibold">Resultados Notorios</span>
                 </div>
             </div>
 
-            <!-- Etapa 3 -->
-            <div class="bg-white p-6 rounded-2xl border-2 border-cuaima-100 relative shadow-sm hover:shadow-md transition">
-                <div class="w-10 h-10 rounded-xl bg-cuaima-600 text-white font-extrabold flex items-center justify-center text-lg mb-4">
+            <!-- Fase 3 -->
+            <div class="bg-brand-card border border-brand-border p-8 rounded-2xl relative">
+                <div class="w-12 h-12 bg-brand-gold/10 border border-brand-gold text-brand-gold font-display font-bold text-xl rounded-xl flex items-center justify-center mb-6">
                     3
                 </div>
-                <h3 class="text-lg font-extrabold text-slate-900 mb-1">Semanas 9 a 12</h3>
-                <span class="text-xs font-bold text-cuaima-600 block mb-3">Transformación Consolidada</span>
-                <ul class="text-xs text-slate-600 space-y-2 mb-4">
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Recomposición corporal significativa.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Fuerza funcional y resistencia física de élite.</li>
-                    <li class="flex items-start"><i class="fa-solid fa-check text-cuaima-500 mr-2 mt-0.5"></i> Hábito de entrenamiento totalmente arraigado.</li>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-gold">Semanas 9 a 12</span>
+                <h3 class="font-display text-2xl font-bold text-white mt-1 mb-3">Transformación Consolidada</h3>
+                <ul class="text-zinc-400 text-sm space-y-2.5">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Recomposición corporal significativa.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Fuerza funcional y resistencia física de élite.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-check text-brand-gold mt-1"></i> Hábito de entrenamiento totalmente arraigado.</li>
                 </ul>
-                <div class="h-32 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=500&q=80" alt="Consolidación" class="w-full h-full object-cover">
+                <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-500">
+                    <span>Consolidación</span>
+                    <span class="text-brand-gold font-semibold">Nivel Avanzado</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GENERADOR DE RUTINAS SISTEMA 369 -->
-    <section id="rutinas" class="py-16 max-w-5xl mx-auto px-4">
-        <div class="bg-white rounded-3xl border border-cuaima-200 p-6 md:p-10 shadow-xl relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-cuaima-100 rounded-full blur-2xl opacity-50"></div>
-
-            <div class="text-center max-w-2xl mx-auto mb-8">
-                <span class="text-cuaima-600 font-extrabold text-sm uppercase tracking-wider">Herramienta Interactiva</span>
-                <h2 class="text-3xl font-black text-slate-900 mt-1">Generador de Rutinas Sistema 369</h2>
-                <p class="text-slate-600 text-sm mt-2">Selecciona tu objetivo y genera al instante una rutina optimizada estructurada en el algoritmo de entreno 3-6-9.</p>
+    <!-- GENERADOR DE RUTINAS INTERACTIVO 369 -->
+    <section id="generador" class="py-20 bg-brand-card border-y border-brand-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold rounded-full text-xs font-bold uppercase tracking-wider mb-3">Herramienta Interactiva</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white">
+                    Generador de Rutinas <span class="text-brand-gold">Sistema 369</span>
+                </h2>
+                <p class="text-zinc-400 mt-2">Selecciona tu objetivo y genera al instante una rutina optimizada estructurada en el algoritmo de entreno 3-6-9.</p>
             </div>
 
-            <!-- Objective Selector Buttons -->
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <button onclick="generateRoutine('fuerza')" id="btn-fuerza" class="routine-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-cuaima-600 text-white shadow-md">
-                    <i class="fa-solid fa-dumbbell mr-1"></i> Fuerza e Hipertrofia
-                </button>
-                <button onclick="generateRoutine('calistenia')" id="btn-calistenia" class="routine-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-cuaima-50">
-                    <i class="fa-solid fa-person-walking mr-1"></i> Calistenia & Peso Corporal
-                </button>
-                <button onclick="generateRoutine('quema')" id="btn-quema" class="routine-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-cuaima-50">
-                    <i class="fa-solid fa-fire mr-1"></i> Quema de Grasa (HIIT)
-                </button>
-            </div>
-
-            <!-- Routine Display Area -->
-            <div id="routine-container" class="space-y-4">
-                <!-- Javascript will inject workout cards here -->
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-slate-500">¿Quieres que un entrenador ajuste estos pesos y repeticiones a tu nivel exacto?</p>
-                <button onclick="openModal('Rutina Personalizada 369')" class="w-full sm:w-auto bg-cuaima-600 hover:bg-cuaima-700 text-white font-bold text-xs px-5 py-3 rounded-xl transition flex items-center justify-center space-x-2">
-                    <i class="fa-brands fa-whatsapp text-sm"></i>
-                    <span>Personalizar mi Rutina vía WhatsApp</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ORGANIGRAMA Y ESTRUCTURA ADMINISTRATIVA -->
-    <section id="organizacion" class="py-16 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-cuaima-600 font-extrabold text-xs uppercase tracking-widest bg-white px-3 py-1 rounded-full border border-cuaima-200">
-                    Estructura Interna
-                </span>
-                <h2 class="text-3xl font-black text-slate-900 mt-2">Organigrama El Cuaima</h2>
-                <p class="text-slate-600 text-sm mt-1">Organización administrativa orientada al servicio del atleta y optimización del rendimiento.</p>
-            </div>
-
-            <!-- Flowchart / Organigram UI -->
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <!-- Level 1: Dirección -->
-                <div class="bg-white p-5 rounded-2xl border-2 border-cuaima-600 shadow-md text-center max-w-md mx-auto">
-                    <div class="w-10 h-10 bg-cuaima-600 text-white rounded-xl flex items-center justify-center mx-auto mb-2 text-lg">
-                        <i class="fa-solid fa-crown"></i>
-                    </div>
-                    <h3 class="font-black text-slate-900 text-base">Dirección General & Metodología</h3>
-                    <p class="text-xs font-bold text-cuaima-600">@entrenador_369</p>
-                    <p class="text-xs text-slate-500 mt-1">Supervisión del Sistema 369, planes de entrenamiento y estrategia corporativa.</p>
-                </div>
-
-                <!-- Vertical Line -->
-                <div class="w-0.5 h-6 bg-cuaima-300 mx-auto"></div>
-
-                <!-- Level 2: Coordinación -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                    <div class="bg-white p-4 rounded-xl border border-cuaima-200 shadow-sm text-center">
-                        <div class="w-8 h-8 bg-cuaima-100 text-cuaima-600 rounded-lg flex items-center justify-center mx-auto mb-2 text-sm">
-                            <i class="fa-solid fa-clipboard-check"></i>
-                        </div>
-                        <h4 class="font-extrabold text-slate-800 text-sm">Coordinación Operativa</h4>
-                        <p class="text-[11px] text-slate-500 mt-1">Mantenimiento de zonas, áreas de peso y equipamiento urbano.</p>
-                    </div>
-
-                    <div class="bg-white p-4 rounded-xl border border-cuaima-200 shadow-sm text-center">
-                        <div class="w-8 h-8 bg-cuaima-100 text-cuaima-600 rounded-lg flex items-center justify-center mx-auto mb-2 text-sm">
-                            <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <h4 class="font-extrabold text-slate-800 text-sm">Atención al Atleta & Asesorías</h4>
-                        <p class="text-[11px] text-slate-500 mt-1">Gestión de miembros, consultas online y soporte por WhatsApp.</p>
-                    </div>
-                </div>
-
-                <!-- Vertical Line -->
-                <div class="w-0.5 h-6 bg-cuaima-300 mx-auto"></div>
-
-                <!-- Level 3: Entrenamiento Directo -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                        <i class="fa-solid fa-person-running text-cuaima-600 mb-1"></i>
-                        <h5 class="font-bold text-slate-800 text-xs">Área Calistenia</h5>
-                        <p class="text-[10px] text-slate-500">Supervisión de barras y técnica</p>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                        <i class="fa-solid fa-dumbbell text-cuaima-600 mb-1"></i>
-                        <h5 class="font-bold text-slate-800 text-xs">Área Cargas Pesadas</h5>
-                        <p class="text-[10px] text-slate-500">Fuerza e hipertrofia libre</p>
-                    </div>
-                    <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
-                        <i class="fa-solid fa-heart-pulse text-cuaima-600 mb-1"></i>
-                        <h5 class="font-bold text-slate-800 text-xs">Área Acondicionamiento</h5>
-                        <p class="text-[10px] text-slate-500">Resistencia y HIIT 369</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ENTRENADOR & ASESORIA DIRECTA -->
-    <section id="entrenador" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-50 rounded-3xl border border-cuaima-200 p-8 md:p-12 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <div class="inline-block px-3 py-1 rounded-full bg-cuaima-100 text-cuaima-700 font-bold text-xs mb-4">
-                        Asesorías Presenciales & Online
-                    </div>
-                    <h2 class="text-3xl font-black text-slate-900 mb-4">Entrena de Forma Inteligente con @entrenador_369</h2>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        No pierdas tiempo haciendo ejercicios sin planificación. Obtén un programa estructurado para ganar fuerza muscular, perder grasa o dominar la calistenia con seguimiento directo.
-                    </p>
-
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center space-x-3 text-slate-700 text-sm">
-                            <i class="fa-solid fa-circle-check text-cuaima-600"></i>
-                            <span>Evaluación física inicial y objetivos claros.</span>
-                        </div>
-                        <div class="flex items-center space-x-3 text-slate-700 text-sm">
-                            <i class="fa-solid fa-circle-check text-cuaima-600"></i>
-                            <span>Planes adaptados a gimnasio o parque urbano.</span>
-                        </div>
-                        <div class="flex items-center space-x-3 text-slate-700 text-sm">
-                            <i class="fa-solid fa-circle-check text-cuaima-600"></i>
-                            <span>Atención personalizada por WhatsApp.</span>
-                        </div>
-                    </div>
-
-                    <button onclick="openModal('Bríndame una Asesoría Directa')" class="bg-cuaima-600 hover:bg-cuaima-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-md flex items-center space-x-2">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <span>Solicitar Asesoría Ahora</span>
+            <div class="bg-brand-dark border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-2xl">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                    <button onclick="generarRutina('fuerza')" id="btn-fuerza" class="rutina-btn bg-brand-gold text-black font-bold py-3.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-dumbbell"></i> Fuerza e Hipertrofia
+                    </button>
+                    <button onclick="generarRutina('calistenia')" id="btn-calistenia" class="rutina-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-700 font-semibold py-3.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-person-running"></i> Calistenia &amp; Peso Corporal
+                    </button>
+                    <button onclick="generarRutina('definicion')" id="btn-definicion" class="rutina-btn bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-700 font-semibold py-3.5 px-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-fire"></i> Quema de Grasa (HIIT)
                     </button>
                 </div>
 
-                <div class="bg-white border border-cuaima-200 rounded-2xl p-6 text-center shadow-sm">
-                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-cuaima-600 shadow-md">
-                        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=400&q=80" alt="Entrenador" class="w-full h-full object-cover">
+                <!-- Contenedor donde se muestra la rutina generada -->
+                <div id="resultado-rutina" class="bg-zinc-900/80 border border-zinc-800 rounded-xl p-6">
+                    <!-- Se llena automáticamente con JS -->
+                </div>
+
+                <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-zinc-800">
+                    <p class="text-xs text-zinc-400 text-center sm:text-left">
+                        ¿Quieres que un entrenador ajuste estos pesos y repeticiones a tu nivel exacto?
+                    </p>
+                    <button onclick="abrirModal()" class="w-full sm:w-auto bg-green-600 hover:bg-green-500 text-white font-bold py-2.5 px-5 rounded-lg text-xs transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i> Personalizar mi Rutina vía WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIGRAMA OPERATIVO -->
+    <section id="organigrama" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em]">Estructura Interna</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white mt-2">
+                Organigrama <span class="text-brand-gold">Entrenador 369</span>
+            </h2>
+            <p class="text-zinc-400 mt-2 max-w-xl mx-auto">Organización administrativa orientada al servicio del atleta y optimización del rendimiento.</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <!-- Nivel 1: Dirección General -->
+            <div class="bg-brand-card border-2 border-brand-gold rounded-2xl p-6 text-center max-w-sm w-full shadow-lg shadow-amber-500/10">
+                <div class="w-12 h-12 bg-brand-gold text-black rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <h3 class="font-display text-xl font-bold uppercase text-white">Dirección General &amp; Metodología</h3>
+                <p class="text-brand-gold text-xs font-bold uppercase tracking-wider mt-1">@entrenador_369</p>
+                <p class="text-zinc-400 text-xs mt-2">Supervisión del Sistema 369, planes de entrenamiento y estrategia corporativa.</p>
+            </div>
+
+            <!-- Línea conectora vertical -->
+            <div class="w-0.5 h-8 bg-zinc-700"></div>
+            <!-- Línea horizontal conectora -->
+            <div class="w-3/4 max-w-2xl h-0.5 bg-zinc-700 hidden md:block"></div>
+
+            <!-- Nivel 2: Áreas Operativas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl mt-4 md:mt-0">
+                <div class="flex flex-col items-center">
+                    <div class="w-0.5 h-6 bg-zinc-700 hidden md:block"></div>
+                    <div class="bg-brand-card border border-zinc-800 rounded-xl p-5 text-center w-full">
+                        <i class="fa-solid fa-gears text-brand-gold text-2xl mb-2"></i>
+                        <h4 class="font-display text-lg font-bold uppercase text-white">Coordinación Operativa</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Mantenimiento de zonas, áreas de peso y equipamiento urbano.</p>
                     </div>
-                    <h3 class="font-extrabold text-xl text-slate-900">Gimnasio Urbano El Cuaima</h3>
-                    <p class="text-xs text-cuaima-700 font-semibold mb-4">Comunidad & Entrenamiento de Alto Rendimiento</p>
-                    
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-left text-xs text-slate-600 space-y-2">
-                        <p><strong>Ubicación:</strong> Venezuela</p>
-                        <p><strong>Modalidad:</strong> Presencial & Asesoría Online</p>
-                        <p><strong>Instagram:</strong> @entrenador_369</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-0.5 h-6 bg-zinc-700 hidden md:block"></div>
+                    <div class="bg-brand-card border border-zinc-800 rounded-xl p-5 text-center w-full">
+                        <i class="fa-solid fa-headset text-brand-gold text-2xl mb-2"></i>
+                        <h4 class="font-display text-lg font-bold uppercase text-white">Atención al Atleta &amp; Asesorías</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Gestión de miembros, consultas online y soporte por WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nivel 3: Divisiones de Entrenamiento -->
+            <div class="w-0.5 h-8 bg-zinc-700"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
+                <div class="bg-zinc-900/70 border border-zinc-800 rounded-xl p-4 text-center">
+                    <span class="text-brand-gold font-bold text-xs uppercase block mb-1">Área Calistenia</span>
+                    <p class="text-zinc-300 text-xs">Supervisión de barras y técnica</p>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 rounded-xl p-4 text-center">
+                    <span class="text-brand-gold font-bold text-xs uppercase block mb-1">Área Cargas Pesadas</span>
+                    <p class="text-zinc-300 text-xs">Fuerza e hipertrofia libre</p>
+                </div>
+                <div class="bg-zinc-900/70 border border-zinc-800 rounded-xl p-4 text-center">
+                    <span class="text-brand-gold font-bold text-xs uppercase block mb-1">Área Acondicionamiento</span>
+                    <p class="text-zinc-300 text-xs">Resistencia y HIIT 369</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ENTRENADOR Y CONTACTO -->
+    <section id="entrenador" class="py-20 bg-brand-card border-t border-brand-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="text-brand-gold font-bold text-xs uppercase tracking-widest">Asesorías Presenciales &amp; Online</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase text-white mt-2 mb-4">
+                        Entrena de Forma Inteligente con <span class="text-brand-gold">@entrenador_369</span>
+                    </h2>
+                    <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                        No pierdas tiempo haciendo ejercicios sin planificación. Obtén un programa estructurado para ganar fuerza muscular, perder grasa o dominar la calistenia con seguimiento directo.
+                    </p>
+                    <div class="space-y-3 mb-8 text-sm text-zinc-300">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i>
+                            <span>Evaluación física inicial y objetivos claros.</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i>
+                            <span>Planes adaptados a gimnasio o parque urbano.</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-gold"></i>
+                            <span>Atención personalizada por WhatsApp.</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <button onclick="abrirModal()" class="bg-brand-gold hover:bg-amber-400 text-black font-bold py-3.5 px-7 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Solicitar Asesoría Ahora
+                        </button>
+                        <a href="https://instagram.com/entrenador_369" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3.5 px-7 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-instagram text-pink-500 text-lg"></i> @entrenador_369
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Visual Perfil -->
+                <div class="w-full md:w-80 bg-zinc-950 border border-zinc-800 rounded-2xl p-6 text-center">
+                    <div class="w-24 h-24 rounded-full bg-brand-gold/20 border-2 border-brand-gold mx-auto mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Entrenador" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white uppercase">Entrenador 369</h3>
+                    <p class="text-brand-gold text-xs font-semibold mb-4">Comunidad &amp; Entrenamiento de Alto Rendimiento</p>
+                    <div class="border-t border-zinc-800 pt-4 text-left space-y-2 text-xs text-zinc-400">
+                        <p><strong class="text-white">Ubicación:</strong> Venezuela</p>
+                        <p><strong class="text-white">Modalidad:</strong> Presencial &amp; Asesoría Online</p>
+                        <p><strong class="text-white">Instagram:</strong> @entrenador_369</p>
                     </div>
                 </div>
             </div>
@@ -451,148 +439,164 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-xs">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div class="flex items-center space-x-2">
-                    <span class="font-black text-slate-800">EL CUAIMA 369</span>
-                    <span>- Gimnasio Urbano</span>
-                </div>
-                <div>
-                    <p>&copy; 2026 Gimnasio Urbano El Cuaima. Todos los derechos reservados.</p>
-                </div>
+    <footer class="bg-black border-t border-zinc-900 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="w-7 h-7 bg-brand-gold text-black font-display font-bold text-sm rounded flex items-center justify-center">369</span>
+                <span class="font-display font-bold text-white tracking-wider">ENTRENADOR 369 - Sistema 369</span>
+            </div>
+            <p class="text-zinc-500 text-xs text-center">
+                &copy; 2026 Entrenador 369. Todos los derechos reservados.
+            </p>
+            <div class="flex items-center gap-4 text-zinc-400">
+                <a href="https://instagram.com/entrenador_369" target="_blank" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <button onclick="abrirModal()" class="hover:text-green-500 transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></button>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL POPUP PARA ASESORIA Y WHATSAPP -->
-    <div id="modal-asesoria" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-cuaima-100 relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
-                <i class="fa-solid fa-xmark text-xl"></i>
+    <!-- MODAL DE ASESORÍA WHATSAPP -->
+    <div id="modal-asesoria" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-zinc-700 rounded-2xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="cerrarModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
             </button>
-
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-cuaima-100 text-cuaima-600 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-green-600/20 text-green-500 flex items-center justify-center text-xl">
                     <i class="fa-brands fa-whatsapp"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-900" id="modal-title">Bríndame una Asesoría</h3>
-                <p class="text-xs text-slate-500 mt-1">Completa estos datos y conéctate directamente por WhatsApp.</p>
+                <div>
+                    <h3 class="font-display text-xl font-bold uppercase text-white">Bríndame una Asesoría</h3>
+                    <p class="text-xs text-zinc-400">Completa estos datos y conéctate directamente por WhatsApp.</p>
+                </div>
             </div>
 
-            <form id="whatsapp-form" onsubmit="sendWhatsApp(event)" class="space-y-4">
+            <form onsubmit="enviarWhatsApp(event)" class="space-y-4 mt-5">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Tu Nombre</label>
-                    <input type="text" id="user-name" required placeholder="Ej. Luis Felipe" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cuaima-600 focus:ring-1 focus:ring-cuaima-600 outline-none text-sm">
+                    <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Tu Nombre</label>
+                    <input type="text" id="cliente-nombre" required placeholder="Ej: Carlos Pérez" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Objetivo Principal</label>
-                    <select id="user-goal" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cuaima-600 focus:ring-1 focus:ring-cuaima-600 outline-none text-sm">
+                    <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Objetivo Principal</label>
+                    <select id="cliente-objetivo" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
                         <option value="Aumentar Masa Muscular / Fuerza">Aumentar Masa Muscular / Fuerza</option>
-                        <option value="Calistenia y Control Corporal">Aprender Calistenia / Dominadas</option>
-                        <option value="Perder Grasa / Definición">Perder Grasa / Acondicionamiento</option>
+                        <option value="Aprender Calistenia / Dominadas">Aprender Calistenia / Dominadas</option>
+                        <option value="Perder Grasa / Acondicionamiento">Perder Grasa / Acondicionamiento</option>
                     </select>
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad</label>
-                    <select id="user-type" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:border-cuaima-600 focus:ring-1 focus:ring-cuaima-600 outline-none text-sm">
+                    <label class="block text-xs font-semibold uppercase text-zinc-400 mb-1">Modalidad</label>
+                    <select id="cliente-modalidad" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
                         <option value="Asesoría Online">Asesoría Online</option>
                         <option value="Entrenamiento Presencial">Entrenamiento Presencial</option>
                     </select>
                 </div>
-
-                <button type="submit" class="w-full bg-cuaima-600 hover:bg-cuaima-700 text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center space-x-2">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Iniciar Chat en WhatsApp</span>
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2 mt-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Iniciar Chat en WhatsApp
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- JAVASCRIPT APP LOGIC -->
+    <!-- SCRIPTS DE INTERACTIVIDAD -->
     <script>
-        // Routine Database (Sistema 369)
-        const routines = {
-            fuerza: [
-                { stage: "Fase 3 (Calentamiento)", name: "Dominadas neutras + Flexiones de pecho", rep: "3 series x 10 reps" },
-                { stage: "Fase 6 (Bloque Principal de Carga)", name: "Press de banca / Fondos pesados en paralelas", rep: "6 series x 6 - 8 reps" },
-                { stage: "Fase 9 (Remate Muscular 369)", name: "Remo con barra / Curl de bíceps / Extensión de tríceps", rep: "9 minutos metabólicos continuos" }
-            ],
-            calistenia: [
-                { stage: "Fase 3 (Técnica Básica)", name: "Dominadas pronas en barra fija", rep: "3 series x 8 reps" },
-                { stage: "Fase 6 (Core y Fuerza)", name: "Fondos profundos + Leg raises colgado", rep: "6 series x 12 reps" },
-                { stage: "Fase 9 (Resistencia Urbana)", name: "Flexiones de braza / Australian pull-ups", rep: "9 series al fallo técnico" }
-            ],
-            quema: [
-                { stage: "Fase 3 (Activación Cardiaca)", name: "Jumping Jacks + Escaladores de montaña", rep: "3 rondas x 1 min" },
-                { stage: "Fase 6 (Circuito Potencia)", name: "Burpees urbanos + Sentadillas con salto", rep: "6 rondas HIIT (40s activo / 20s descanso)" },
-                { stage: "Fase 9 (Acondicionamiento Final)", name: "Planca abdominal isometrica + Sprints", rep: "9 minutos de intervalo intenso" }
-            ]
+        // CONFIGURACIÓN: Coloca aquí tu número de WhatsApp con código de país (sin el símbolo +)
+        const TELEFONO_ENTRENADOR = "584142777342"; 
+
+        const rutinasData = {
+            fuerza: {
+                titulo: "Protocolo 369: Fuerza e Hipertrofia",
+                enfoque: "Cargas progresivas y control excéntrico (Descanso: 90 seg)",
+                ejercicios: [
+                    { bloque: "3 SERIES", nombre: "Press de Banca o Fondos con Lastre", reps: "6 - 8 repeticiones pesadas" },
+                    { bloque: "6 SERIES", nombre: "Remo con Barra o Dominadas Pronas", reps: "8 - 10 repeticiones controladas" },
+                    { bloque: "9 SERIES", nombre: "Sentadillas + Elevaciones Laterales", reps: "12 repeticiones por ejercicio" }
+                ]
+            },
+            calistenia: {
+                titulo: "Protocolo 369: Dominio Corporal & Calistenia",
+                enfoque: "Fuerza relativa, tensión isométrica y control en barra",
+                ejercicios: [
+                    { bloque: "3 SERIES", nombre: "Dominadas Explosivas (Pull-ups)", reps: "Al fallo técnico (-2 reps)" },
+                    { bloque: "6 SERIES", nombre: "Fondos en Paralelas + Flexiones Diamante", reps: "10 + 12 repeticiones" },
+                    { bloque: "9 SERIES", nombre: "Elevaciones de Piernas en Barra + Plancha", reps: "15 reps + 45 seg isométrico" }
+                ]
+            },
+            definicion: {
+                titulo: "Protocolo 369: Quema de Grasa Metabólica",
+                enfoque: "Alta densidad de trabajo y mínimo descanso (30 seg)",
+                ejercicios: [
+                    { bloque: "3 RONDAS", nombre: "Burpees con Salto + Dominadas Australiana", reps: "45 seg trabajo / 15 seg descanso" },
+                    { bloque: "6 RONDAS", nombre: "Zancadas Alternas + Flexiones Explosivas", reps: "40 seg trabajo / 20 seg descanso" },
+                    { bloque: "9 MINUTOS", nombre: "EMOM: 10 Sentadillas + 10 Mountain Climbers", reps: "Cada minuto por 9 minutos" }
+                ]
+            }
         };
 
-        // Render Routine Function
-        function generateRoutine(type) {
-            const container = document.getElementById('routine-container');
-            const data = routines[type];
-
-            // Update button styles
-            document.querySelectorAll('.routine-btn').forEach(btn => {
-                btn.className = "routine-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-slate-100 text-slate-700 hover:bg-cuaima-50";
+        function generarRutina(tipo) {
+            // Actualizar estilos de botones
+            document.querySelectorAll('.rutina-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-gold', 'text-black', 'font-bold');
+                btn.classList.add('bg-zinc-900', 'text-zinc-300', 'border', 'border-zinc-700');
             });
-            document.getElementById(`btn-${type}`).className = "routine-btn px-5 py-2.5 rounded-xl font-bold text-sm bg-cuaima-600 text-white shadow-md";
+            const activeBtn = document.getElementById(`btn-${tipo}`);
+            activeBtn.classList.remove('bg-zinc-900', 'text-zinc-300', 'border', 'border-zinc-700');
+            activeBtn.classList.add('bg-brand-gold', 'text-black', 'font-bold');
 
-            container.innerHTML = data.map(item => `
-                <div class="bg-slate-50 border border-cuaima-100 p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-2">
-                    <div>
-                        <span class="text-xs font-black text-cuaima-600 tracking-wider block">${item.stage}</span>
-                        <h4 class="font-bold text-slate-900 text-base">${item.name}</h4>
-                    </div>
-                    <div class="bg-white border border-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold self-start md:self-auto">
-                        <i class="fa-solid fa-clock text-cuaima-500 mr-1"></i> ${item.rep}
-                    </div>
+            // Renderizar rutina
+            const data = rutinasData[tipo];
+            const contenedor = document.getElementById('resultado-rutina');
+            
+            let html = `
+                <div class="mb-4 pb-3 border-b border-zinc-800">
+                    <h4 class="font-display text-xl font-bold text-white uppercase">${data.titulo}</h4>
+                    <p class="text-xs text-brand-gold mt-0.5">${data.enfoque}</p>
                 </div>
-            `).join('');
+                <div class="space-y-3">
+            `;
+
+            data.ejercicios.forEach(ej => {
+                html += `
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-brand-dark p-3.5 rounded-lg border border-zinc-800/80 gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-brand-gold/15 text-brand-gold font-display font-bold text-xs px-2.5 py-1 rounded">${ej.bloque}</span>
+                            <span class="font-semibold text-sm text-white">${ej.nombre}</span>
+                        </div>
+                        <span class="text-xs text-zinc-400 font-medium">${ej.reps}</span>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            contenedor.innerHTML = html;
         }
 
-        // Modal Functions
-        function openModal(serviceTitle) {
-            if(serviceTitle) {
-                document.getElementById('modal-title').innerText = serviceTitle;
-            }
+        // Modal functions
+        function abrirModal() {
             document.getElementById('modal-asesoria').classList.remove('hidden');
         }
 
-        function closeModal() {
+        function cerrarModal() {
             document.getElementById('modal-asesoria').classList.add('hidden');
         }
 
-        // Send formatted WhatsApp message
-        function sendWhatsApp(e) {
+        function enviarWhatsApp(e) {
             e.preventDefault();
-            const name = document.getElementById('user-name').value;
-            const goal = document.getElementById('user-goal').value;
-            const type = document.getElementById('user-type').value;
+            const nombre = document.getElementById('cliente-nombre').value;
+            const objetivo = document.getElementById('cliente-objetivo').value;
+            const modalidad = document.getElementById('cliente-modalidad').value;
 
-            const text = `Hola Trainer @entrenador_369, mi nombre es ${name}. Estoy interesado en una ${type} en el Gimnasio Urbano El Cuaima. Mi objetivo principal es: ${goal}. ¿Cómo podemos comenzar?`;
+            const mensaje = `Hola @entrenador_369! Mi nombre es *${nombre}*. Me interesa comenzar con el Sistema 369.%0A%0A*Objetivo:* ${objetivo}%0A*Modalidad:* ${modalidad}%0A%0A¿Cómo podemos empezar?`;
             
-            // Reemplazar con tu número de WhatsApp exacto (Ej: 58412XXXXXXX)
-            const whatsappNumber = "584120000000"; 
-            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
-            
+            const url = `https://wa.me/${TELEFONO_ENTRENADOR}?text=${mensaje}`;
             window.open(url, '_blank');
-            closeModal();
+            cerrarModal();
         }
 
-        // Initialize with default routine on load
-        window.onload = function() {
-            generateRoutine('fuerza');
-        };
+        // Cargar rutina inicial por defecto
+        document.addEventListener('DOMContentLoaded', () => {
+            generarRutina('fuerza');
+        });
     </script>
-</body><div style="text-align: center; padding: 25px; font-family: Arial, sans-serif; background: #f9f9f9; margin-top: 25px; border-radius: 10px; border: 1px solid #ddd;">
-    <h3 style="color: #222; margin-bottom: 8px;">Entrenador: Luis Felipe Garcia Rivas</h3>
-    <p style="color: #555; margin-bottom: 15px; font-size: 16px;">¡Comienza tu transformación con el Sistema 369! Escríbeme directo para asesorías.</p>
-    <a href="https://wa.me/584142777342" target="_blank" style="background: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; display: inline-block;">Escríbeme por WhatsApp</a>
-</div>
+</body>
 </html>
